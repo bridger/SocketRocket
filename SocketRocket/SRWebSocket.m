@@ -590,6 +590,10 @@ static __strong NSData *CRLFCRLF;
                             forKey:(__bridge id)kCFStreamPropertySSLSettings];
     }
     
+    // Set up the connections to be VOIP
+    [_inputStream setProperty:NSStreamNetworkServiceTypeVoIP forKey:NSStreamNetworkServiceType];
+    [_outputStream setProperty:NSStreamNetworkServiceTypeVoIP forKey:NSStreamNetworkServiceType];
+    
     _inputStream.delegate = self;
     _outputStream.delegate = self;
 }
